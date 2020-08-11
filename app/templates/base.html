@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+  <!--<![endif]-->
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    {% if title %}
+    <title>One - {{ title }}</title>
+    {% else %}
+    <title>Welcome to OneAlbum</title>
+    {% endif %}
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/main.css') }}"
+    />
+  </head>
+  <body>
+    <!--[if lt IE 7]>
+      <p class="browsehappy">
+        You are using an <strong>outdated</strong> browser. Please
+        <a href="#">upgrade your browser</a> to improve your experience.
+      </p>
+    <![endif]-->
+    <div class="container">
+      <nav>
+        <div class="logo">
+          <svg
+            class="logo"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 512 512"
+          >
+            <g transform="translate(512.001 0) rotate(90)">
+              <path
+                d="M510.507,321.257a10,10,0,0,0,.438-9.729l-153-306a10,10,0,0,0-17.888,0L257.375,170.882,171.884,5.41A10,10,0,0,0,163,0h-.066a10,10,0,0,0-8.878,5.528l-153,306A10,10,0,0,0,10,326H180.052L97,497.646A10,10,0,0,0,106,512H211a10,10,0,1,0,0-20H121.948S341.951,46.46,349,32.36L485.821,306H279.263l20-40h105.66a10,10,0,0,0,8.945-14.473L357.946,139.7a10,10,0,0,0-17.888,0C195.348,429.114,277.27,263.717,194.042,437.723A10.006,10.006,0,0,0,203.081,452h105.84a10.006,10.006,0,0,0,9.039-14.277L267.12,330.29l2.145-4.29H309.73l80.323,166H301a10,10,0,0,0,0,20H406a10,10,0,0,0,9-14.356L331.948,326H502a10,10,0,0,0,8.506-4.743Zm-288.047-80.54L171.945,139.7a10,10,0,0,0-17.888,0l-55.92,111.83A10,10,0,0,0,107.082,266H209.82l-20,40H26.18L163.146,32.069,246.3,193.025ZM202.739,246H123.261L163,166.529ZM349,166.529,388.74,246H309.261ZM218.875,432,256,353.549,293.125,432Z"
+                transform="translate(0 0)"
+              />
+              <circle
+                cx="10"
+                cy="10"
+                r="10"
+                transform="translate(246.553 492)"
+              />
+            </g>
+          </svg>
+          <h3>LOGOOH</h3>
+        </div>
+        <div class="burger">
+          <svg
+            class="menu-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M3 12h18M3 6h18M3 18h18" />
+          </svg>
+          <svg
+            class="close-icon hidden-svg"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M18 6L6 18M6 6l12 12" />
+          </svg>
+        </div>
+        <ul class="nav-links">
+          <li><a href="{{ url_for('index') }}">Home</a></li>
+          <li><a href="{{ url_for('login') }}">Login</a></li>
+          <li><a href="{{ url_for('register') }}">Register</a></li>
+          <li><a href="{{ url_for('logout') }}">Logout</a></li>
+        </ul>
+      </nav>
+      <div class="content">
+        {% with messages = get_flashed_messages() %} {% if messages %}
+        <ul>
+          {% for message in messages %}
+          <li>{{ message }}</li>
+          {% endfor %}
+        </ul>
+        {% endif %} {% endwith %} {% block content %}{% endblock %}
+      </div>
+    </div>
+    <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
+    <script
+      type="text/javascript"
+      src="{{ url_for('static', filename='js/index.js') }}"
+    ></script>
+  </body>
+</html>
